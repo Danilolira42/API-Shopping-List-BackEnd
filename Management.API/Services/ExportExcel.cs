@@ -31,7 +31,7 @@ namespace ShoppingList.API.Services
                 {
                     wSheet.Cell(row, 1).Value = p.ProductId.ToString();
                     wSheet.Cell(row, 2).Value = p.ProductName.ToString();
-                    wSheet.Cell(row, 3).Value = p.RegistrationDate.ToShortDateString();
+                    wSheet.Cell(row, 3).Value = p.RegistrationDate.Date.AddHours(-3).ToShortDateString();
                     wSheet.Cell(row, 3).Style.DateFormat.Format = "dd/MM/yyyy";
 
                     row++;

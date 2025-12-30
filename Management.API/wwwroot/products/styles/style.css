@@ -44,9 +44,8 @@ main {
 
 html,
 body {
-    height: 100%;
+    height: max-content;
     margin: 0;
-    height: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 25vh;
@@ -361,16 +360,23 @@ li input {
     margin-left: 13px;
     align-items: center;
     justify-content: center;
-    padding: 0.5px;
+    visibility: visible;
+    opacity: 1;
 }
+
+.icon-hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden; 
+}
+
 
 .newInputPencil:focus,
 .newInputPencil:hover {
-    caret-color: #CA3884;
-    border: 2px solid #CA3884;
-    border-radius: 5px;
-    box-shadow: none;
-
+        caret-color: #CA3884;
+        border: 2px solid #CA3884;
+        border-radius: 5px;
+        box-shadow: none;
 }
 
 .save {
@@ -469,4 +475,45 @@ footer {
     color: white;
     padding: 0;
     margin: 0;
+}
+
+dialog {
+    width: 50%;
+    height: 50%;
+    max-width: auto;
+    max-height: auto;
+    margin: 10% auto;
+    border: 2px solid transparent;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    outline: none;
+    flex-direction: column;
+}
+
+dialog h1 {
+    font-size: 25px;
+    margin-top: 60px;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 50px;
+    color: #CA3884;
+}
+
+section {
+    align-content: center;
+}
+
+.confirmButtons {
+    margin-top: auto;
+    display: flex;
+    gap: 60px;
+}
+
+.confirmButtons > button {
+    color: #FFFFFF;
+    padding: 6px 14px;
+    background-color: #CA3884;
+    border-radius: 8px;
 }

@@ -18,6 +18,16 @@ public class ProductController : ControllerBase
         _db = db ?? throw new ArgumentNullException(nameof(db));
     }
 
+    [HttpGet("GetProducts")]
+    [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
+
+    public IActionResult GetProduct()
+    {
+        var products = _db.Products.ToList();
+
+        return Ok(products);
+    }
+
     [HttpGet("GetAllProducts")]
     [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
 
@@ -148,6 +158,7 @@ public class ProductController : ControllerBase
         }
 
         _db.Database.ExecuteSqlRaw("DELETE FROM ProductsRegister");
+        _db.Database.ExecuteSqlRaw("TRUNCATE ProductsRegister");
 
         return StatusCode(200, $"Products deleted successfully!");
     }
